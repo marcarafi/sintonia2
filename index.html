@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sintonía</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <style>
+        body {
+            font-family: "Montserrat";
+            color: #f5f5f5;
+            background-color: #0c0c0c;
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+            position: fixed;
+            background-color: #24172e;
+            box-shadow: 0 0px 10px rgba(14, 14, 14, 0.555);
+            color: #f5f5f5;
+            padding: 10px 30px;
+            font-family: "Montserrat";
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header img {
+            height: 100px;
+            position: absolute;
+            left: 50px;
+        }
+
+        #nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        #nav ul li {
+            margin-right: 30px;
+        }
+
+        #nav ul li a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        #nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        #inicio {
+            background-image: url('imagenes/fondo.png');
+            background-size: cover;
+            background-position: center;
+            align-items: start;
+            padding: 450px 10px;
+            text-align: center;
+        }
+
+        #infoinicio {
+            margin-top: -255px;
+        }
+        
+       #infoinicio h2 {
+        font-size: 40px;
+       }
+
+       #infoinicio p{
+        font-size: 18px;
+       }
+        #planes, #beneficios, #testimonios, #preg {
+            padding: 150px 20px;
+           background-color: #101010;
+            text-align: center;
+        }
+
+        #planes h1, #beneficios h1, #testimonios h1, #preg h1 {
+            color: #BC52FF;
+            font-size: 28pt;
+            margin-bottom: 10px;
+        }
+
+        #planes p, #beneficios p, #testimonios p {
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+
+        .contenedor-planes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tarjeta-planes {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .tarjeta-planes:hover {
+            transform: scale(1.05);
+        }
+
+        .precio {
+            font-size: 36px;
+            margin: 20px 0;
+            color: #BC52FF;
+        }
+
+        .nombre-planes {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .ventajas-planes {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .precio-button {
+            background-color: #BC52FF;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .precio-button:hover {
+            background-color: #A23DFF;
+           
+        }
+
+        .beneficios-list {
+            display: flex;
+            font-family: "Montserrat";
+            justify-content: center;
+            gap: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .tarjeta-beneficio {
+            background-image: url('imagenes/bloque.png');
+            background-size: cover;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: left;
+            min-height: 220px;
+        }
+
+        .beneficio-title {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #BC52FF;
+        }
+
+        .beneficio-title img {
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+        }
+
+        #testimonios {
+            background-size: cover;
+            background-position: center;
+            align-items: start;
+            padding: 150px 10px;
+            text-align: center;
+        }
+
+        .testimonios-cont {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tarjeta-testimonio {
+            background-color: #24172e;
+            border: 2px solid #BC52FF;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .tarjeta-testimonio h3 {
+            color: #BC52FF;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta-testimonio p {
+            font-size: 14px;
+            color: #f5f5f5;
+        }
+        #preg{
+            background-image: url(imagenes/bloque.png);
+            background-size: cover;
+        }
+
+        .preg-cont  {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .preg-item {
+            background-color: #24172e;
+            border: 2px solid #BC52FF;
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            transition: transform 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .preg-item:hover {
+            transform: scale(1.02);
+        }
+
+        .preg-item h3 {
+            color: #BC52FF;
+            font-size:20px;
+            margin-bottom: 10px;
+        }
+
+        .preg-item p {
+            color: #f5f5f5;
+            font-size:13px;
+        }
+
+        .chat {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      background-color: #BC52FF;
+      color: #f5f5f5;
+      font-family: "Montserrat";
+      border: none;
+      padding: 15px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: all 0.3s ease-in-out;
+     
+    } 
+    .chat a{
+        text-decoration: none;
+        color: #f5f5f5;
+    }
+
+    .chat:hover{
+        background-color:  #A23DFF;
+        transform:scale(1.1,1.1) ;
+    }
+
+        footer {
+            background-color: #301c3d;
+            color: #f5f5f5;
+            padding: 20px 0;
+            }
+
+            .footer-cont {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            }
+
+            .footer-section {
+            flex: 1 1 200px;
+            margin: 10px;
+            }
+
+            .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            }
+
+            .footer-section p,.footer-section form {
+            font-size: 14px;
+            }
+            
+            .footer-section a {
+                color: #f5f5f5;
+                text-decoration: none;
+            }
+
+            .footer-section form {
+            display: flex;
+            gap: 5px;
+            }
+
+            .footer-section form input {
+            padding: 5px;
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            }
+
+            .footer-section form button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #BC52FF;
+            color:#f5f5f5;
+            border-radius: 3px;
+            }
+
+            .footer-section form button:hover {
+            background-color: #A23DFF;
+            }
+
+            .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+            }
+
+            
+    </style>
+</head>
+<body>
+    <header>
+        <img src="imagenes/logo.png" alt="Logo">
+        <nav id="nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="cuerpo">
+        <section id="inicio">
+            <section id="infoinicio">
+                <h2>Un viaje infinito a través del sonido</h2>
+                <p>Escuchar música nunca fue tan cómodo</p>
+                <div class="imgdescarga">
+                    <a href="https://www.apple.com/la/app-store/">
+                        <img src="imagenes/App-Store1.svg" width="200" height="100" alt="appstore">
+                    </a>
+                    <a href="https://play.google.com/store/games?hl=es_AR">
+                        <img src="imagenes/Google-Play1.svg" width="200" height="100" alt="appstore">
+                    </a>
+                </div>
+            </section>
+        </section>
+
+        <section id="planes">
+            <h1>Planes</h1>
+            <p>Conoce nuestros planes y elige el que más se adapte a tus necesidades</p>
+            <div class="contenedor-planes">
+                <div class="tarjeta-planes">
+                    <div class="precio">$450 /mes</div>
+                    <div class="nombre-planes">Individual</div>
+                    <ul class="ventajas-planes">
+                        <li>Acceso completo a música</li>
+                        <li>Sin anuncios</li>
+                        <li>Calidad HD</li>
+                    </ul>
+                    <a href="#" class="precio-button">Comenzar</a>
+                </div>
+                <div class="tarjeta-planes" style="border: 2px solid #BC52FF;">
+                    <div class="precio">$250 /mes</div>
+                    <div class="nombre-planes">Estudiantil</div>
+                    <ul class="ventajas-planes">
+                        <li>Acceso completo a música</li>
+                        <li>Sin anuncios</li>
+                        <li>Calidad HD</li>
+                        <li>Descargas</li>
+                    </ul>
+                    <a href="#" class="precio-button">Comenzar</a>
+                </div>
+                <div class="tarjeta-planes">
+                    <div class="precio">$750 /mes</div>
+                    <div class="nombre-planes">Familiar</div>
+                    <ul class="ventajas-planes">
+                        <li>Acceso completo a música</li>
+                        <li>Sin anuncios</li>
+                        <li>Calidad HD</li>
+                        <li>Descargas</li>
+                        <li>Hasta 6 cuentas</li>
+                    </ul>
+                    <a href="#" class="precio-button">Comenzar</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="beneficios">
+            <h1>Beneficios</h1>
+            <p>Descubre todos los beneficios que ofrecemos para que tu experiencia sea única</p>
+            <div class="beneficios-list">
+                <div class="tarjeta-beneficio">
+                    <div class="beneficio-title">
+                        <img src="imagenes/reto.svg" alt="Icono Acceso Exclusivo">
+                        Cumple retos musicales
+                    </div>
+                    <p>Desafíos semanales y retos con otros usuarios.</p>
+                </div>
+                <div class="tarjeta-beneficio">
+                    <div class="beneficio-title">
+                        <img src="imagenes/plata.svg" alt="Icono Calidad de Sonido">
+                        Apoya a tus artistas favoritos
+                    </div>
+                    <p>Apoya a tus artistas para que sigan creando la música que amas.</p>
+                </div>
+                <div class="tarjeta-beneficio">
+                    <div class="beneficio-title">
+                        <img src="imagenes/buscar.svg" alt="Icono Sin Anuncios">
+                        Descubre nueva música
+                    </div>
+                    <p>Dejá que la música te sorprenda, descubrí algo único y emocionante.</p>
+                </div>
+                <div class="tarjeta-beneficio">
+                    <div class="beneficio-title">
+                        <img src="imagenes/amigo.svg" alt="Icono Soporte">
+                        Conectá con tus amigos
+                    </div>
+                    <p>Conectate con tus amigos para competir en desafios y desbloquear contenido especial juntos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios">
+            <h1>Testimonios</h1>
+            <p>Descubre cómo Sintonía está transformando la experiencia de nuestros usuarios</p>
+            <div class="testimonios-cont">
+                <div class="tarjeta-testimonio">
+                    <h3>Claudia</h3>
+                    <p>¡Agradecida con la app! La instalamos en familia y nos unimos como nunca. Compartimos nuestros retos y las playlists del viaje ya no son pelea.</p>
+                </div>
+                <div class="tarjeta-testimonio">
+                    <h3>Julia</h3>
+                    <p>¡Amé los desafíos! Siempre me costó muchísimo salir de mi zona de confort, pero poco a poco esta app me ayuda a descubrir nueva música.</p>
+                </div>
+                <div class="tarjeta-testimonio">
+                    <h3>Benjamín</h3>
+                    <p>Super Intuitiva. Me instalé la app y me suscribí en la misma semana. Fácil de usar, buena calidad de música, gran personalización. Lo tiene todo.</p>
+                </div>
+                <div class="tarjeta-testimonio">
+                    <h3>Rocío</h3>
+                    <p>Salvó mi secundaria. Me descargué Sintonía para escuchar en los recreos. Gracias a la app conseguí una nueva amiga con gustos parecidos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="preg">
+            <h1>Preguntas Frecuentes</h1>
+            <p>Encuentra respuestas a las dudas más comunes sobre Sintonía</p>
+            <div class="preg-cont">
+                <div class="preg-item">
+                    <h3>¿Sintonía ofrece un periodo de prueba gratuito?</h3>
+                    <p>Sí, todos los nuevos usuarios obtienen los primeros tres meses de acceso gratuito al plan básico, con reproducción de música sin anuncios. Al final del período, los usuarios pueden elegir entre diferentes planes de suscripción.</p>
+                </div>
+                <div class="preg-item">
+                    <h3>¿Cómo puedo activar el plan Estudiantil?</h3>
+                    <p>Para acceder al plan Estudiantil, debes verificar tu condición de estudiante a través de nuestro sistema de validación. Una vez aprobado (proceso que no tardará más de 3 días), obtendrás acceso completo a Sintonía a un precio reducido.</p>
+                </div>
+                <div class="preg-item">
+                    <h3>¿Puedo personalizar mi cuenta incluso dentro del plan familiar?</h3>
+                    <p>El plan Familiar permite el acceso para hasta 6 cuentas en un mismo hogar. Cada miembro de la familia tendrá su propio perfil, listas personalizadas y recomendaciones, lo que garantiza una experiencia personalizada en la app.</p>
+                </div>
+                <div class="preg-item">
+                    <h3>¿Cuáles son las opciones de pago disponibles?</h3>
+                    <p>Aceptamos varios métodos de pago, incluyendo tarjeta de crédito, débito, y opciones de pago locales. Consulta la sección de métodos de pago dentro de la app para ver las opciones disponibles en tu país.</p>
+                </div>
+            </div>
+        </section>
+    </div> 
+
+    <button class="chat"> <a href="https://www.behance.net/gallery/204388675/Sintonia_AppMusica">Descarga</a></button> 
+
+    <footer>
+        <div class="footer-cont">
+          <div class="footer-section">
+            <h3>Nosotros</h3>
+            <p>
+            Sintonía es una app creada por cuatro diseñadores para facilitar el descubrimiento musical, explorar nuevos géneros, interactuar con otros usuarios y apoyar a artistas favoritos.</p>
+          </div>
+          <div class="footer-section">
+            <h3>Contacto</h3>
+            <p>+54 9 11 234 5678</p>
+            <p><a href="mailto:margarita.carafi@davinci.edu.ar">sintoniarrhh@gmail.com</a></p>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Suscripción</h3>
+            <p>Suscribite a nuestro newsletter y enterate de nuestras novedades!</p>
+            <form>
+              <input type="email" placeholder="ejemplo@ejemplo.com">
+              <button type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Derechos Reservados | Sintonía </p>
+        </div>
+      </footer>
+</body>
+</html>
